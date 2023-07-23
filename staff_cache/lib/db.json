@@ -1,0 +1,18 @@
+{
+  "staff": [
+    {
+      "id": 1,
+      "name": "Forest"
+    },
+    {
+      "name": "Jeanne Morar",
+      "id": 2
+    },
+    {
+      "name": "Misty Armstrong",
+      "id": 3
+    }
+  ],
+  "albums": [],
+  "songs": []
+}

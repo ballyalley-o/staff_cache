@@ -1,4 +1,4 @@
-import className from 'classnames';
+import className from 'classnames'
 
 function Button({
   children,
@@ -13,7 +13,7 @@ function Button({
 }) {
   const classes = className(
     rest.className,
-    'flex items-center px-3 py-1.5 border',
+    'flex items-center px-3 py-1.5 border rounded-xl',
     {
       'border-blue-500 bg-blue-500 text-white': primary,
       'border-gray-900 bg-gray-900 text-white': secondary,
@@ -28,13 +28,13 @@ function Button({
       'text-yellow-400': outline && warning,
       'text-red-500': outline && danger,
     }
-  );
+  )
 
   return (
     <button {...rest} className={classes}>
       {children}
     </button>
-  );
+  )
 }
 
 Button.propTypes = {
@@ -44,14 +44,14 @@ Button.propTypes = {
       Number(!!secondary) +
       Number(!!warning) +
       Number(!!success) +
-      Number(!!danger);
+      Number(!!danger)
 
     if (count > 1) {
       return new Error(
         'Only one of primary, secondary, success, warning, danger can be true'
-      );
+      )
     }
   },
-};
+}
 
-export default Button;
+export default Button

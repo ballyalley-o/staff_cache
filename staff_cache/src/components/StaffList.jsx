@@ -35,12 +35,18 @@ function StaffList() {
 
   return (
     <div className='mt-2'>
-      <div className='flex flex-row justify-between m-3'>
+      <div className='flex flex-row justify-between my-3'>
         <h1 className='text-8xl'>Staff</h1>
-        <Button onClick={handleAddStaff}>
-          <FaPlus />
-          &nbsp;
-          {BUTTONS.ADD_STAFF}
+        <Button onClick={handleAddStaff} disabled={isLoading} primary>
+          {isLoading ? (
+            <Loading isButton />
+          ) : (
+            <>
+              <FaPlus />
+              &nbsp;
+              {BUTTONS.ADD_STAFF}
+            </>
+          )}
         </Button>
       </div>
       <div>{isLoading && <Loading />}</div>

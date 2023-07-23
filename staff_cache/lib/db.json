@@ -11,6 +11,34 @@
     {
       "name": "Misty Armstrong",
       "id": 3
+    },
+    {
+      "name": "Dr. Wendy Macejkovic",
+      "id": 4
+    },
+    {
+      "name": "Craig Kemmer",
+      "id": 5
+    },
+    {
+      "name": "Jeff Hartmann",
+      "id": 6
+    },
+    {
+      "name": "Garrett Koelpin",
+      "id": 7
+    },
+    {
+      "name": "Darrel Jones",
+      "id": 8
+    },
+    {
+      "name": "Lorraine Crooks",
+      "id": 9
+    },
+    {
+      "name": "Bill Lockman",
+      "id": 10
     }
   ],
   "albums": [],

@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import Button from './Button.jsx'
 import Loading from './Loading'
 import { FaPlus } from 'react-icons/fa'
+import pause from '../util/pause'
 // constants
 import { BUTTONS, SNACKS } from '../constants/staff'
 
@@ -19,7 +20,7 @@ function StaffList() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setIsLoadingStaff(true)
+    setIsLoadingStaff(false)
     dispatch(fetchStaff())
       .unwrap()
       .catch((err) => setCreateErrStaff(toast.error(err.message)))
@@ -28,6 +29,7 @@ function StaffList() {
 
   const handleAddStaff = () => {
     setIsLoadingStaff(true)
+    pause(5000)
     dispatch(addStaff())
       .unwrap()
       .then(() => toast.success(SNACKS.STAFF_ADDED))
@@ -50,9 +52,16 @@ function StaffList() {
       <div className='flex flex-row justify-between my-3'>
         <h1 className='text-8xl'>Staff</h1>
         {isCreateStaff ? (
-          <h1 classNames='text-2xl'>Creating User</h1>
+          <h1 classNames='text-2xl'>...Creating a user</h1>
         ) : (
-          <Button onClick={handleAddStaff} disabled={isLoadingStaff} primary>
+          <Button
+            onClick={() => {
+              pause(5000)
+              handleAddStaff()
+            }}
+            disabled={isLoadingStaff}
+            primary
+          >
             {isLoadingStaff ? (
               <Loading isButton />
             ) : (
@@ -66,7 +75,6 @@ function StaffList() {
         )}
         {createErrStaff && <p className='text-red-500'>{createErrStaff}</p>}
       </div>
-      <div>{isLoadingStaff && <Loading />}</div>
       {renderedStaff}
     </div>
   )

@@ -5,8 +5,6 @@ const staffSlice = createSlice({
   name: 'staff',
   initialState: {
     data: [],
-    isLoading: false,
-    error: null,
   },
   extraReducers(builder) {
     // fetch staff

@@ -1,40 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchStaff, addStaff } from '../store'
-import { toast } from 'react-toastify'
+// hooks
+import useThunk from '../hooks/use-thunk/useThunk'
+// components
 import Button from './Button.jsx'
 import Loading from './Loading'
+// assets
 import { FaPlus } from 'react-icons/fa'
+import { toast } from 'react-toastify'
+// utils
 import pause from '../util/pause'
 // constants
-import { BUTTONS, SNACKS } from '../constants/staff'
+import { BUTTONS } from '../constants/staff'
 
 function StaffList() {
-  const [isLoadingStaff, setIsLoadingStaff] = useState(false)
-  const [loadingStaffErr, setLoadingStaffErr] = useState(null)
-  const [isCreateStaff, setIsCreateStaff] = useState(false)
-  const [createErrStaff, setCreateErrStaff] = useState(null)
-
   const { data } = useSelector((state) => state.staff)
-
-  const dispatch = useDispatch()
+  const [getStaff, isLoadingStaff, loadingStaffError] = useThunk(fetchStaff)
+  const [createStaff, isCreateStaff, createStaffError] = useThunk(addStaff)
 
   useEffect(() => {
-    setIsLoadingStaff(false)
-    dispatch(fetchStaff())
-      .unwrap()
-      .catch((err) => setCreateErrStaff(toast.error(err.message)))
-      .finally(() => setIsCreateStaff(false))
-  }, [dispatch])
+    getStaff()
+  }, [getStaff])
 
   const handleAddStaff = () => {
-    setIsLoadingStaff(true)
-    pause(5000)
-    dispatch(addStaff())
-      .unwrap()
-      .then(() => toast.success(SNACKS.STAFF_ADDED))
-      .catch((err) => toast.error(err.message))
-      .finally(() => setIsLoadingStaff(false))
+    createStaff()
   }
 
   const renderedStaff = data.map((staff) => {
@@ -52,17 +42,10 @@ function StaffList() {
       <div className='flex flex-row justify-between my-3'>
         <h1 className='text-8xl'>Staff</h1>
         {isCreateStaff ? (
-          <h1 classNames='text-2xl'>...Creating a user</h1>
+          <h1 classNames='text-2xl bold'>...Creating a user</h1>
         ) : (
-          <Button
-            onClick={() => {
-              pause(5000)
-              handleAddStaff()
-            }}
-            disabled={isLoadingStaff}
-            primary
-          >
-            {isLoadingStaff ? (
+          <Button onClick={handleAddStaff} disabled={isLoadingStaff} primary>
+            {isLoadingStaff || loadingStaffError ? (
               <Loading isButton />
             ) : (
               <>
@@ -73,7 +56,7 @@ function StaffList() {
             )}
           </Button>
         )}
-        {createErrStaff && <p className='text-red-500'>{createErrStaff}</p>}
+        {createStaffError && <p className='text-red-500'>{createStaffError}</p>}
       </div>
       {renderedStaff}
     </div>

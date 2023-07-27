@@ -17,5 +17,5 @@ export default function useThunk(thunk) {
     },
     [dispatch, thunk]
   )
-  return [runThunk, error, isLoading]
+  return [runThunk, isLoading, error]
 }

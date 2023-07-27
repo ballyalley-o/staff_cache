@@ -41,21 +41,12 @@ function StaffList() {
     <div className='mt-2'>
       <div className='flex flex-row justify-between my-3'>
         <h1 className='text-8xl'>Staff</h1>
-        {isCreateStaff ? (
-          <h1 classNames='text-2xl bold'>...Creating a user</h1>
-        ) : (
-          <Button onClick={handleAddStaff} disabled={isLoadingStaff} primary>
-            {isLoadingStaff || loadingStaffError ? (
-              <Loading isButton />
-            ) : (
-              <>
-                <FaPlus />
-                &nbsp;
-                {BUTTONS.ADD_STAFF}
-              </>
-            )}
-          </Button>
-        )}
+
+        <Button onClick={handleAddStaff} loading={isCreateStaff} primary>
+          <FaPlus />
+          {BUTTONS.ADD_STAFF}
+        </Button>
+
         {createStaffError && <p className='text-red-500'>{createStaffError}</p>}
       </div>
       {renderedStaff}

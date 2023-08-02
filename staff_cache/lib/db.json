@@ -1,36 +1,12 @@
 {
   "staff": [
     {
-      "id": 1,
-      "name": "Forest"
-    },
-    {
-      "name": "Jeanne Morar",
-      "id": 2
-    },
-    {
-      "name": "Misty Armstrong",
-      "id": 3
-    },
-    {
-      "name": "Randall Metz",
-      "id": 4
-    },
-    {
       "name": "Veronica Bosco",
       "id": 5
     },
     {
-      "name": "Kevin Greenfelder",
-      "id": 6
-    },
-    {
       "name": "Herbert Anderson",
       "id": 7
-    },
-    {
-      "name": "Tina Feest",
-      "id": 8
     }
   ],
   "albums": [],

@@ -12,6 +12,7 @@ import { FaPlus } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 // constants
 import { BUTTONS } from '../constants/staff'
+import StaffListItem from './StaffListItem'
 
 function StaffList() {
   const { data } = useSelector((state) => state.staff)
@@ -34,13 +35,7 @@ function StaffList() {
     content = <p className='text-red-500'>{loadingStaffError}</p>
   } else {
     content = data.map((staff) => {
-      return (
-        <div key={staff.id} className='mb-2 border rounded'>
-          <div className='flex p-2 justify-between items-center cursor-pointer'>
-            <h1 className='text-2xl'>{staff.name}</h1>
-          </div>
-        </div>
-      )
+      return <StaffListItem key={staff.id} staff={staff}></StaffListItem>
     })
   }
 

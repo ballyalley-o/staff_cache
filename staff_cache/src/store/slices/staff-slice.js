@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchStaff, addStaff } from '../thunks'
+import { fetchStaff, addStaff, removeStaff } from '../thunks'
 
 const staffSlice = createSlice({
   name: 'staff',
@@ -28,6 +28,18 @@ const staffSlice = createSlice({
       state.data.push(action.payload)
     })
     builder.addCase(addStaff.rejected, (state, action) => {
+      state.isLoading = false
+      state.error = action.error
+    })
+    // remove staff
+    builder.addCase(removeStaff.pending, (state, action) => {
+      state.isLoading = true
+    })
+    builder.addCase(removeStaff.fulfilled, (state, action) => {
+      state.isLoading = false
+      state.data = state.data.filter((staff) => staff.id !== action.payload.id)
+    })
+    builder.addCase(removeStaff.rejected, (state, action) => {
       state.isLoading = false
       state.error = action.error
     })

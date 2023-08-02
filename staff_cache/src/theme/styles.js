@@ -16,6 +16,7 @@ export const StyledInnerDiv = classNames(
   'inset-0',
   '-translate-x-full',
   'bg-gradient-to-r',
-  'via-red-100',
+  'from-gray-200',
+  'via-white',
   'to-gray-200'
 )

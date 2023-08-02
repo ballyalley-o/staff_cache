@@ -6,11 +6,10 @@ import useThunk from '../hooks/use-thunk/useThunk'
 // components
 import Button from './Button.jsx'
 import Loading from './Loading'
+import Skeleton from './Skeleton'
 // assets
 import { FaPlus } from 'react-icons/fa'
 import { toast } from 'react-toastify'
-// utils
-import pause from '../util/pause'
 // constants
 import { BUTTONS } from '../constants/staff'
 
@@ -27,19 +26,27 @@ function StaffList() {
     createStaff()
   }
 
-  const renderedStaff = data.map((staff) => {
-    return (
-      <div key={staff.id} className='mb-2 border rounded'>
-        <div className='flex p-2 justify-between items-center cursor-pointer'>
-          <h1 className='text-2xl'>{staff.name}</h1>
+  let content
+
+  if (isLoadingStaff) {
+    content = <Skeleton custom='w-full h-10' times={6} />
+  } else if (loadingStaffError) {
+    content = <p className='text-red-500'>{loadingStaffError}</p>
+  } else {
+    content = data.map((staff) => {
+      return (
+        <div key={staff.id} className='mb-2 border rounded'>
+          <div className='flex p-2 justify-between items-center cursor-pointer'>
+            <h1 className='text-2xl'>{staff.name}</h1>
+          </div>
         </div>
-      </div>
-    )
-  })
+      )
+    })
+  }
 
   return (
     <div className='mt-2'>
-      <div className='flex flex-row justify-between my-3'>
+      <div className='flex flex-row justify-between items-center my-3'>
         <h1 className='text-8xl'>Staff</h1>
 
         <Button onClick={handleAddStaff} loading={isCreateStaff} primary>
@@ -49,7 +56,7 @@ function StaffList() {
 
         {createStaffError && <p className='text-red-500'>{createStaffError}</p>}
       </div>
-      {renderedStaff}
+      {content}
     </div>
   )
 }

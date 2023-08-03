@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { SERVER_URL, PATH } from '../../config/config'
+import { faker } from '@faker-js/faker'
 
 const albumsApi = createApi({
   reducerPath: 'albums',
@@ -20,11 +21,14 @@ const albumsApi = createApi({
         },
       }),
       createAlbums: builder.mutation({
-        query: (album) => {
+        query: (staff) => {
           return {
             method: 'POST',
             url: '/albums',
-            body: album,
+            body: {
+              staffId: staff.id,
+              title: faker.science.chemicalElement(),
+            },
           }
         },
       }),

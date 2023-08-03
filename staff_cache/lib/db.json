@@ -1,19 +1,54 @@
 {
   "staff": [
     {
-      "name": "Veronica Bosco",
-      "id": 5
-    },
-    {
       "name": "Herbert Anderson",
       "id": 7
+    },
+    {
+      "name": "Dr. Alberto Runte",
+      "id": 8
+    },
+    {
+      "name": "Stanley Donnelly MD",
+      "id": 9
     }
   ],
   "albums": [
     {
-      "id": 23,
-      "title": "The Best of the Best",
-      "staffId": 5
+      "staffId": 7,
+      "title": {
+        "symbol": "Cf",
+        "name": "Californium",
+        "atomicNumber": 98
+      },
+      "id": 25
+    },
+    {
+      "staffId": 9,
+      "id": 26,
+      "title": {
+        "symbol": "Es",
+        "name": "Einsteinium",
+        "atomicNumber": 99
+      }
+    },
+    {
+      "staffId": 9,
+      "id": 27,
+      "title": {
+        "symbol": "Fm",
+        "name": "Fermium",
+        "atomicNumber": 100
+      }
+    },
+    {
+      "staffId": 9,
+      "title": {
+        "symbol": "P",
+        "name": "Phosphorus",
+        "atomicNumber": 15
+      },
+      "id": 28
     }
   ],
   "songs": []

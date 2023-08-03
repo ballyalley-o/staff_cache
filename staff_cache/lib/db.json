@@ -9,6 +9,12 @@
       "id": 7
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": 23,
+      "title": "The Best of the Best",
+      "staffId": 5
+    }
+  ],
   "songs": []
 }

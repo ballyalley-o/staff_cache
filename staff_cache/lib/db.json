@@ -7,49 +7,9 @@
     {
       "name": "Dr. Alberto Runte",
       "id": 8
-    },
-    {
-      "name": "Stanley Donnelly MD",
-      "id": 9
     }
   ],
   "albums": [
-    {
-      "staffId": 7,
-      "title": {
-        "symbol": "Cf",
-        "name": "Californium",
-        "atomicNumber": 98
-      },
-      "id": 25
-    },
-    {
-      "staffId": 9,
-      "id": 26,
-      "title": {
-        "symbol": "Es",
-        "name": "Einsteinium",
-        "atomicNumber": 99
-      }
-    },
-    {
-      "staffId": 9,
-      "id": 27,
-      "title": {
-        "symbol": "Fm",
-        "name": "Fermium",
-        "atomicNumber": 100
-      }
-    },
-    {
-      "staffId": 9,
-      "title": {
-        "symbol": "P",
-        "name": "Phosphorus",
-        "atomicNumber": 15
-      },
-      "id": 28
-    },
     {
       "staffId": 7,
       "title": {
@@ -67,6 +27,42 @@
         "atomicNumber": 79
       },
       "id": 30
+    },
+    {
+      "staffId": 8,
+      "title": {
+        "symbol": "Hg",
+        "name": "Mercury",
+        "atomicNumber": 80
+      },
+      "id": 33
+    },
+    {
+      "staffId": 7,
+      "title": {
+        "symbol": "O",
+        "name": "Oxygen",
+        "atomicNumber": 8
+      },
+      "id": 34
+    },
+    {
+      "staffId": 8,
+      "title": {
+        "symbol": "Rh",
+        "name": "Rhodium",
+        "atomicNumber": 45
+      },
+      "id": 35
+    },
+    {
+      "staffId": 8,
+      "title": {
+        "symbol": "Er",
+        "name": "Erbium",
+        "atomicNumber": 68
+      },
+      "id": 36
     }
   ],
   "songs": []

@@ -1,5 +1,5 @@
-export default async function pause(delay) {
-  const response = await new Promise((resolve) => {
+export default function pause(delay) {
+  const response = new Promise((resolve) => {
     setTimeout(resolve, delay)
   })
   return response

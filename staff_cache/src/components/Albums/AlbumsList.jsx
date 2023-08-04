@@ -2,16 +2,17 @@ import React from 'react'
 import { useFetchAlbumsQuery, useCreateAlbumsMutation } from '../../store'
 import { toast } from 'react-toastify'
 import { FaPlus } from 'react-icons/fa'
+import AlbumsListItem from './AlbumsListItem'
 import Skeleton from '../Skeleton'
-import ExpandablePanel from '../ExpandablePanel'
 import Button from '../Button'
 
 export default function AlbumsList({ staff }) {
   const { data, error, isLoading } = useFetchAlbumsQuery(staff)
   const [createAlbums, results] = useCreateAlbumsMutation()
 
-  const handleCreateAlbums = () => {
-    createAlbums(staff)
+  const handleCreateAlbums = async () => {
+    await createAlbums(staff)
+    toast.success('Album created')
   }
 
   let content
@@ -22,18 +23,7 @@ export default function AlbumsList({ staff }) {
     content = toast.error(error.message)
   } else {
     content = data.map((album) => {
-      const header = <div>{album.title.name}</div>
-
-      return (
-        <ExpandablePanel key={album.id} header={header}>
-          <p>
-            Atomic no.: <b>{album.title.atomicNumber}</b>
-          </p>
-          <p>
-            Symbol: <b>{album.title.symbol}</b>
-          </p>
-        </ExpandablePanel>
-      )
+      return <AlbumsListItem key={album.id} album={album} />
     })
   }
 
@@ -41,8 +31,12 @@ export default function AlbumsList({ staff }) {
   return (
     <div className=''>
       <div className='flex flex-row justify-between items-center my-3'>
-        Albums for {staff.name}
-        <Button onClick={handleCreateAlbums} warning>
+        <h3 className='text-lg font-bold'>Albums for {staff.name}</h3>
+        <Button
+          onClick={handleCreateAlbums}
+          warning
+          loading={results.isLoading}
+        >
           <FaPlus /> <h1 className='text-lg text-black'>Add Album</h1>
         </Button>
       </div>

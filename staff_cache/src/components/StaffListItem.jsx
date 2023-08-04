@@ -16,6 +16,7 @@ function StaffListItem({ staff }) {
 
   const handleRemove = () => {
     deleteStaff(staff)
+    toast.success('Staff removed')
   }
 
   const header = (

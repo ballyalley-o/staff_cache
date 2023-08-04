@@ -25,6 +25,7 @@ function StaffList() {
 
   const handleAddStaff = () => {
     createStaff()
+    toast.success('Staff created')
   }
 
   let content

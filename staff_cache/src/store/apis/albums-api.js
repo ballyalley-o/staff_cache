@@ -28,7 +28,7 @@ const albumsApi = createApi({
           }
         },
       }),
-      createAlbums: builder.mutation({
+      createAlbum: builder.mutation({
         query: (staff) => {
           return {
             method: 'POST',
@@ -48,11 +48,10 @@ const albumsApi = createApi({
           return {
             method: 'DELETE',
             url: '/albums/' + album.id,
-            body: {},
           }
         },
-        invalidatesTags: (album) => {
-          return [{ type: 'Album', id: album.id }]
+        invalidatesTags: (result, error, album) => {
+          return [{ type: 'Album', id: album.staffId }]
         },
       }),
     }
@@ -61,7 +60,7 @@ const albumsApi = createApi({
 
 export const {
   useFetchAlbumsQuery,
-  useCreateAlbumsMutation,
+  useCreateAlbumMutation,
   useRemoveAlbumMutation,
 } = albumsApi
 export { albumsApi }

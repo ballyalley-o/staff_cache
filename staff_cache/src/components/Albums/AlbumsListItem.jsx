@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useRemoveAlbumMutation } from '../../store/apis/albums-api'
+import PhotosList from '../Photos/PhotosList'
 import Button from '../Button'
 import ExpandablePanel from '../ExpandablePanel'
 import { BsTrashFill } from 'react-icons/bs'
@@ -34,6 +35,7 @@ function AlbumsListItem({ album }) {
       <p>
         Symbol: <b>{album.title.symbol}</b>
       </p>
+      <PhotosList album={album} />
     </ExpandablePanel>
   )
 }

@@ -7,6 +7,10 @@
     {
       "name": "Dr. Alberto Runte",
       "id": 8
+    },
+    {
+      "name": "Freddie Maggio",
+      "id": 9
     }
   ],
   "albums": [
@@ -29,15 +33,6 @@
       "id": 30
     },
     {
-      "staffId": 8,
-      "title": {
-        "symbol": "Hg",
-        "name": "Mercury",
-        "atomicNumber": 80
-      },
-      "id": 33
-    },
-    {
       "staffId": 7,
       "title": {
         "symbol": "O",
@@ -49,20 +44,20 @@
     {
       "staffId": 8,
       "title": {
-        "symbol": "Rh",
-        "name": "Rhodium",
-        "atomicNumber": 45
-      },
-      "id": 35
-    },
-    {
-      "staffId": 8,
-      "title": {
         "symbol": "Er",
         "name": "Erbium",
         "atomicNumber": 68
       },
       "id": 36
+    },
+    {
+      "staffId": 9,
+      "title": {
+        "symbol": "Ni",
+        "name": "Nickel",
+        "atomicNumber": 28
+      },
+      "id": 39
     }
   ],
   "songs": []

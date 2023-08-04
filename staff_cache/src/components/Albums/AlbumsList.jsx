@@ -1,5 +1,5 @@
 import React from 'react'
-import { useFetchAlbumsQuery, useCreateAlbumsMutation } from '../../store'
+import { useFetchAlbumsQuery, useCreateAlbumMutation } from '../../store'
 import { toast } from 'react-toastify'
 import { FaPlus } from 'react-icons/fa'
 import AlbumsListItem from './AlbumsListItem'
@@ -7,27 +7,26 @@ import Skeleton from '../Skeleton'
 import Button from '../Button'
 
 export default function AlbumsList({ staff }) {
-  const { data, error, isLoading } = useFetchAlbumsQuery(staff)
-  const [createAlbums, results] = useCreateAlbumsMutation()
+  const { data, error, isFetching } = useFetchAlbumsQuery(staff)
+  const [createAlbum, results] = useCreateAlbumMutation()
 
   const handleCreateAlbums = async () => {
-    await createAlbums(staff)
+    await createAlbum(staff)
     toast.success('Album created')
   }
 
   let content
 
-  if (isLoading) {
+  if (isFetching) {
     content = <Skeleton custom='w-full h-10' times={6} />
   } else if (error) {
     content = toast.error(error.message)
   } else {
-    content = data.map((album) => {
+    content = data?.map((album) => {
       return <AlbumsListItem key={album.id} album={album} />
     })
   }
 
-  console.log(data, error, isLoading)
   return (
     <div className=''>
       <div className='flex flex-row justify-between items-center my-3'>

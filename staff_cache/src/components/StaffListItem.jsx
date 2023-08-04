@@ -24,7 +24,7 @@ function StaffListItem({ staff }) {
       <Button loading={isLoading} onClick={handleRemove}>
         <BsTrashFill />
       </Button>
-      {error && <div>{toast.error(error.message)}</div>};
+      {error && <div>{toast.error(error.message)}</div>}
       <h1 className='text-2xl'>{staff.name}</h1>
     </>
   )

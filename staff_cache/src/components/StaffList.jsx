@@ -35,8 +35,8 @@ function StaffList() {
   } else if (loadingStaffError) {
     content = <p className='text-red-500'>{loadingStaffError}</p>
   } else {
-    content = data.map((staff) => {
-      return <StaffListItem key={staff.id} staff={staff}></StaffListItem>
+    content = data?.map((staff) => {
+      return <StaffListItem key={staff.id} staff={staff} />
     })
   }
 

@@ -49,6 +49,24 @@
         "atomicNumber": 15
       },
       "id": 28
+    },
+    {
+      "staffId": 7,
+      "title": {
+        "symbol": "Nd",
+        "name": "Neodymium",
+        "atomicNumber": 60
+      },
+      "id": 29
+    },
+    {
+      "staffId": 7,
+      "title": {
+        "symbol": "Au",
+        "name": "Gold",
+        "atomicNumber": 79
+      },
+      "id": 30
     }
   ],
   "songs": []

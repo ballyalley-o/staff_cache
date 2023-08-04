@@ -10,6 +10,7 @@ const albumsApi = createApi({
   endpoints(builder) {
     return {
       fetchAlbums: builder.query({
+        providesTags: ['Album'],
         query: (staff) => {
           return {
             method: 'GET',
@@ -31,6 +32,7 @@ const albumsApi = createApi({
             },
           }
         },
+        invalidatesTags: ['Album'],
       }),
     }
   },

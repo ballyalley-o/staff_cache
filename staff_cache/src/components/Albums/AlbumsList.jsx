@@ -1,17 +1,13 @@
 import React from 'react'
 import { useFetchAlbumsQuery, useCreateAlbumMutation } from '../../store'
 // components
-import { toast } from 'react-toastify'
-import { FaPlus } from 'react-icons/fa'
 import AlbumsListItem from './AlbumsListItem'
 import Skeleton from '../Skeleton'
-import Button from '../Button'
+import AddButton from '../Default/AddButton'
+// assets
+import { toast } from 'react-toastify'
 // styles
-import {
-  StyledWrapperDiv,
-  StyledHeaderH3,
-  StyledButton,
-} from '../../theme/styles'
+import { StyledWrapperDiv, StyledHeaderH3 } from '../../theme/styles'
 // constants
 import { BUTTONS, SNACKS } from '../../constants'
 
@@ -27,7 +23,7 @@ export default function AlbumsList({ staff }) {
   let content
 
   if (isFetching) {
-    content = <Skeleton custom='w-full h-10' times={6} />
+    content = <Skeleton times={6} />
   } else if (error) {
     content = toast.error(error.message)
   } else {
@@ -40,13 +36,12 @@ export default function AlbumsList({ staff }) {
     <div>
       <div className={StyledWrapperDiv}>
         <h3 className={StyledHeaderH3}>Albums for {staff.name}</h3>
-        <Button
+        <AddButton
           onClick={handleCreateAlbums}
-          warning
           loading={results.isLoading}
-        >
-          <FaPlus /> <h1 className={StyledButton}>{BUTTONS.ADD_ALBUM}</h1>
-        </Button>
+          content={BUTTONS.ADD_ALBUM}
+          warning
+        />
       </div>
       <div>{content}</div>
     </div>

@@ -7,6 +7,18 @@
     {
       "name": "Freddie Maggio",
       "id": 9
+    },
+    {
+      "name": "Carroll Frami",
+      "id": 10
+    },
+    {
+      "name": "Margie Corkery",
+      "id": 11
+    },
+    {
+      "name": "Clay Jacobs",
+      "id": 12
     }
   ],
   "albums": [
@@ -36,15 +48,6 @@
         "atomicNumber": 28
       },
       "id": 39
-    },
-    {
-      "staffId": 7,
-      "title": {
-        "symbol": "In",
-        "name": "Indium",
-        "atomicNumber": 49
-      },
-      "id": 40
     }
   ],
   "photos": [
@@ -52,11 +55,6 @@
       "albumId": 39,
       "url": "https://loremflickr.com/150/150/abstract?lock=8929653072855040",
       "id": 1
-    },
-    {
-      "albumId": 39,
-      "url": "https://loremflickr.com/150/150/abstract?lock=2451345921540096",
-      "id": 2
     },
     {
       "albumId": 30,
@@ -72,16 +70,6 @@
       "albumId": 29,
       "url": "https://loremflickr.com/150/150/abstract?lock=6846794864525312",
       "id": 8
-    },
-    {
-      "albumId": 36,
-      "url": "https://loremflickr.com/150/150/abstract?lock=3951062448865280",
-      "id": 9
-    },
-    {
-      "albumId": 40,
-      "url": "https://loremflickr.com/150/150/abstract?lock=7329634511224832",
-      "id": 10
     },
     {
       "albumId": 29,

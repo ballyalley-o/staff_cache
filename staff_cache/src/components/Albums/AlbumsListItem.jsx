@@ -6,6 +6,7 @@ import { StyledRemoveButton, StyledIconFa } from '../../theme/styles'
 // components
 import PhotosList from '../Photos/PhotosList'
 import Button from '../Button'
+import RemoveButton from '../Default/RemoveButton'
 import ExpandablePanel from '../ExpandablePanel'
 // assets
 import { BsTrashFill } from 'react-icons/bs'
@@ -26,13 +27,7 @@ export default function AlbumsListItem({ album }) {
 
   const header = (
     <>
-      <Button
-        onClick={handleRemoveAlbum}
-        loading={results.isLoading}
-        className={StyledRemoveButton}
-      >
-        <BsTrashFill className={StyledIconFa} />
-      </Button>
+      <RemoveButton onClick={handleRemoveAlbum} loading={results.isLoading} />
       {album.title.name}
     </>
   )

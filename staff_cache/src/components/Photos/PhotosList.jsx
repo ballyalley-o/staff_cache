@@ -10,6 +10,7 @@ import {
 import Button from '../Button'
 import Skeleton from '../Skeleton'
 import PhotosListItem from './PhotosListItem'
+import AddButton from '../Default/AddButton'
 // assets
 import { FaPlus } from 'react-icons/fa'
 import { toast } from 'react-toastify'
@@ -47,13 +48,12 @@ function PhotosList({ album }) {
         <h3 className={StyledHeaderH3}>
           Suggested album covers for {album?.title.name}
         </h3>
-        <Button
-          loading={results.isLoading}
+        <AddButton
           onClick={handleCreatePhoto}
+          loading={results.isLoading}
+          content={BUTTONS.ADD_ALBUM_COVER}
           secondary
-        >
-          <FaPlus /> {BUTTONS.ADD_ALBUM_COVER}
-        </Button>
+        />
       </div>
       <div className={StyledPhotoWrapperDiv}>{content}</div>
     </div>

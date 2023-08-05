@@ -1,17 +1,11 @@
 import React from 'react'
 import { useRemovePhotoMutation } from '../../store'
 // styles
-import {
-  StyledPhotoItemWrapperDiv,
-  AlbumCoverSize,
-  StyledPhotoItemDiv,
-  StyledIconFaSize,
-} from '../../theme'
+import { StyledPhotoItemWrapperDiv, AlbumCoverSize } from '../../theme'
 // assets
-import { BsTrashFill } from 'react-icons/bs'
 import { toast } from 'react-toastify'
 // components
-import Button from '../Button'
+import RemoveButton from '../Default/RemoveButton'
 // constants
 import { SNACKS } from '../../constants'
 
@@ -25,11 +19,7 @@ function PhotosListItem({ photo }) {
   return (
     <div onClick={handleRemovePhoto} className={StyledPhotoItemWrapperDiv}>
       <img src={photo.url} alt='random' className={AlbumCoverSize} />
-      <div className={StyledPhotoItemDiv}>
-        <Button loading={results.isLoading}>
-          <BsTrashFill className={StyledIconFaSize} />
-        </Button>
-      </div>
+      <RemoveButton isPhoto loading={results.isLoading} />
     </div>
   )
 }

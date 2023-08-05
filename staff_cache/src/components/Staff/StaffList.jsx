@@ -4,19 +4,14 @@ import { fetchStaff, addStaff } from '../../store'
 // hooks
 import useThunk from '../../hooks/use-thunk/useThunk'
 // components
-import Button from '../Button.jsx'
 import Skeleton from '../Skeleton'
+import AddButton from '../Default/AddButton'
 // styles
-import {
-  StyledErrorP,
-  StyledWrapperDiv,
-  StyledLogoH1,
-} from '../../theme/styles'
+import { StyledErrorP, StyledWrapperDiv } from '../../theme/styles'
 // assets
-import { FaPlus } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 // constants
-import { BUTTONS, SNACKS, TITLES } from '../../constants'
+import { BUTTONS, SNACKS } from '../../constants'
 import StaffListItem from './StaffListItem'
 
 export default function StaffList() {
@@ -28,15 +23,15 @@ export default function StaffList() {
     getStaff()
   }, [getStaff])
 
-  const handleAddStaff = () => {
-    createStaff()
+  const handleAddStaff = async () => {
+    await createStaff()
     toast.success(SNACKS.STAFF_ADDED)
   }
 
   let content
 
   if (isLoadingStaff) {
-    content = <Skeleton custom='w-full h-10' times={6} />
+    content = <Skeleton times={6} />
   } else if (loadingStaffError) {
     content = <p className={StyledErrorP}>{loadingStaffError}</p>
   } else {
@@ -46,15 +41,15 @@ export default function StaffList() {
   }
 
   return (
-    <div className='mt-2'>
+    <div>
       <div className={StyledWrapperDiv}>
-        <h1 className={StyledLogoH1}>{TITLES.LOGO_HEADER}</h1>
-
-        <Button onClick={handleAddStaff} loading={isCreateStaff} primary>
-          <FaPlus />
-          {BUTTONS.ADD_STAFF}
-        </Button>
-
+        <AddButton
+          onClick={handleAddStaff}
+          loading={isCreateStaff}
+          content={BUTTONS.ADD_STAFF}
+          primary
+          isPrimaryHeader
+        />
         {createStaffError && <p className={StyledErrorP}>{createStaffError}</p>}
       </div>
       {content}

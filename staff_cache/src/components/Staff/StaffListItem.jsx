@@ -1,21 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 // styles
-import {
-  StyledStaffH1,
-  StyledRemoveButton,
-  StyledIconFa,
-} from '../../theme/styles'
+import { StyledStaffH1 } from '../../theme/styles'
 // hooks
 import useThunk from '../../hooks/use-thunk/useThunk'
 import { removeStaff } from '../../store'
 // components
 import ExpandablePanel from '../ExpandablePanel'
 import AlbumsList from '../Albums/AlbumsList'
-import Button from '../Button'
+import RemoveButton from '../Default/RemoveButton'
 // assets
 import { toast } from 'react-toastify'
-import { BsTrashFill } from 'react-icons/bs'
 // constants
 import { SNACKS } from '../../constants'
 
@@ -33,14 +28,8 @@ function StaffListItem({ staff }) {
 
   const header = (
     <>
-      <Button
-        loading={isLoading}
-        onClick={handleRemove}
-        className={StyledRemoveButton}
-      >
-        <BsTrashFill className={StyledIconFa} />
-      </Button>
-      {error && <div>{toast.error(error.message)}</div>}
+      <RemoveButton onClick={handleRemove} loading={isLoading} />
+      {error && toast.error(error.message)}
       <h1 className={StyledStaffH1}>{staff.name}</h1>
     </>
   )

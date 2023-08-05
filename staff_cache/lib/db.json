@@ -60,5 +60,26 @@
       "id": 39
     }
   ],
-  "songs": []
+  "photos": [
+    {
+      "albumId": 39,
+      "url": "https://loremflickr.com/150/150/abstract?lock=8929653072855040",
+      "id": 1
+    },
+    {
+      "albumId": 39,
+      "url": "https://loremflickr.com/150/150/abstract?lock=2451345921540096",
+      "id": 2
+    },
+    {
+      "albumId": 29,
+      "url": "https://loremflickr.com/150/150/abstract?lock=2262718272765952",
+      "id": 3
+    },
+    {
+      "albumId": 30,
+      "url": "https://loremflickr.com/150/150/abstract?lock=8529800834580480",
+      "id": 5
+    }
+  ]
 }

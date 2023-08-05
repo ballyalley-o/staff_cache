@@ -19,7 +19,6 @@ const photosApi = createApi({
             },
           }
         },
-        providesTags: () => {},
       }),
       createPhoto: builder.mutation({
         query: (album) => {

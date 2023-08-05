@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { SERVER_URL, PATH } from '../../config/config'
+import { SERVER_URL, ALBUM, REDUCER_PATHS, TAGS } from '../../config/config'
 import { faker } from '@faker-js/faker'
 import pause from '../../util/pause'
 
 const albumsApi = createApi({
-  reducerPath: 'albums',
+  reducerPath: REDUCER_PATHS.ALBUMS,
   baseQuery: fetchBaseQuery({
     baseUrl: SERVER_URL,
     fetchFn: async (...args) => {
@@ -16,12 +16,12 @@ const albumsApi = createApi({
     return {
       fetchAlbums: builder.query({
         providesTags: (result, error, staff) => {
-          return [{ type: 'Album', id: staff.id }]
+          return [{ type: TAGS.ALBUM, id: staff.id }]
         },
         query: (staff) => {
           return {
             method: 'GET',
-            url: '/albums',
+            url: ALBUM,
             params: {
               staffId: staff.id,
             },
@@ -32,7 +32,7 @@ const albumsApi = createApi({
         query: (staff) => {
           return {
             method: 'POST',
-            url: '/albums',
+            url: ALBUM,
             body: {
               staffId: staff.id,
               title: faker.science.chemicalElement(),
@@ -40,18 +40,18 @@ const albumsApi = createApi({
           }
         },
         invalidatesTags: (result, error, staff) => {
-          return [{ type: 'Album', id: staff.id }]
+          return [{ type: TAGS.ALBUM, id: staff.id }]
         },
       }),
       removeAlbum: builder.mutation({
         query: (album) => {
           return {
             method: 'DELETE',
-            url: '/albums/' + album.id,
+            url: ALBUM + '/' + album.id,
           }
         },
         invalidatesTags: (result, error, album) => {
-          return [{ type: 'Album', id: album.staffId }]
+          return [{ type: TAGS.ALBUM, id: album.staffId }]
         },
       }),
     }

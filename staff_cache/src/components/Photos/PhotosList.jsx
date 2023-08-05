@@ -1,10 +1,20 @@
 import React from 'react'
 import { useFetchPhotosQuery, useCreatePhotoMutation } from '../../store'
+// styles
+import {
+  StyledWrapperDiv,
+  StyledHeaderH3,
+  StyledPhotoWrapperDiv,
+} from '../../theme'
+// components
 import Button from '../Button'
 import Skeleton from '../Skeleton'
 import PhotosListItem from './PhotosListItem'
+// assets
 import { FaPlus } from 'react-icons/fa'
 import { toast } from 'react-toastify'
+// constants
+import { SNACKS, BUTTONS } from '../../constants'
 
 function PhotosList({ album }) {
   const { data, isFetching, error } = useFetchPhotosQuery(album)
@@ -25,7 +35,7 @@ function PhotosList({ album }) {
   const handleCreatePhoto = () => {
     try {
       createPhoto(album)
-      toast.success('Photo created')
+      toast.success(SNACKS.ALBUM_COVER_CREATED)
     } catch (error) {
       toast.error(error)
     }
@@ -33,8 +43,8 @@ function PhotosList({ album }) {
 
   return (
     <div>
-      <div className='my-2 flex flex-row items-center justify-between'>
-        <h3 className='text-lg font-bold'>
+      <div className={StyledWrapperDiv}>
+        <h3 className={StyledHeaderH3}>
           Suggested album covers for {album?.title.name}
         </h3>
         <Button
@@ -42,12 +52,10 @@ function PhotosList({ album }) {
           onClick={handleCreatePhoto}
           secondary
         >
-          <FaPlus /> Add Album Cover
+          <FaPlus /> {BUTTONS.ADD_ALBUM_COVER}
         </Button>
       </div>
-      <div className='mx-8 flex flex-row flex-wrap justify-center'>
-        {content}
-      </div>
+      <div className={StyledPhotoWrapperDiv}>{content}</div>
     </div>
   )
 }

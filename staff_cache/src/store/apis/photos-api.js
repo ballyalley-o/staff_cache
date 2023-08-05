@@ -1,9 +1,14 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { SERVER_URL, PATH } from '../../config/config'
+import {
+  SERVER_URL,
+  ALBUM_COVER,
+  REDUCER_PATHS,
+  TAGS,
+} from '../../config/config'
 import { faker } from '@faker-js/faker'
 
 const photosApi = createApi({
-  reducerPath: 'photos',
+  reducerPath: REDUCER_PATHS.ALBUM_COVER,
   baseQuery: fetchBaseQuery({
     baseUrl: SERVER_URL,
   }),
@@ -13,7 +18,7 @@ const photosApi = createApi({
         providesTags: (result, error, album) => {
           return [
             {
-              type: 'AlbumPhoto',
+              type: TAGS.ALBUM_COVER,
               id: album.id,
             },
           ]
@@ -21,7 +26,7 @@ const photosApi = createApi({
         query: (album) => {
           return {
             method: 'GET',
-            url: '/photos',
+            url: ALBUM_COVER,
             params: {
               albumId: album.id,
             },
@@ -32,7 +37,7 @@ const photosApi = createApi({
         query: (album) => {
           return {
             method: 'POST',
-            url: '/photos',
+            url: ALBUM_COVER,
             body: {
               albumId: album.id,
               url: faker.image.abstract(150, 150, true),
@@ -40,18 +45,18 @@ const photosApi = createApi({
           }
         },
         invalidatesTags: (result, error, album) => {
-          return [{ type: 'AlbumPhoto', id: album.id }]
+          return [{ type: TAGS.ALBUM_COVER, id: album.id }]
         },
       }),
       removePhoto: builder.mutation({
         query: (photo) => {
           return {
             method: 'DELETE',
-            url: '/photos/' + photo.id,
+            url: ALBUM_COVER + '/' + photo.id,
           }
         },
         invalidatesTags: (result, error, photo) => {
-          return [{ type: 'AlbumPhoto', id: photo.albumId }]
+          return [{ type: TAGS.ALBUM_COVER, id: photo.albumId }]
         },
       }),
     }

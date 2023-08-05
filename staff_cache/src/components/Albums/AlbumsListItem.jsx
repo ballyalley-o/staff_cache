@@ -1,27 +1,37 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useRemoveAlbumMutation } from '../../store/apis/albums-api'
+// styles
+import { StyledRemoveButton, StyledIconFa } from '../../theme/styles'
+// components
 import PhotosList from '../Photos/PhotosList'
 import Button from '../Button'
 import ExpandablePanel from '../ExpandablePanel'
+// assets
 import { BsTrashFill } from 'react-icons/bs'
 import { toast } from 'react-toastify'
+// constants
+import { SNACKS } from '../../constants'
 
 AlbumsListItem.propTypes = {
   album: PropTypes.object.isRequired,
 }
 
-function AlbumsListItem({ album }) {
+export default function AlbumsListItem({ album }) {
   const [removeAlbum, results] = useRemoveAlbumMutation()
   const handleRemoveAlbum = async () => {
     await removeAlbum(album)
-    toast.success('Album removed')
+    toast.success(SNACKS.ALBUM_REMOVE)
   }
 
   const header = (
     <>
-      <Button onClick={handleRemoveAlbum} loading={results.isLoading}>
-        <BsTrashFill />
+      <Button
+        onClick={handleRemoveAlbum}
+        loading={results.isLoading}
+        className={StyledRemoveButton}
+      >
+        <BsTrashFill className={StyledIconFa} />
       </Button>
       {album.title.name}
     </>
@@ -39,5 +49,3 @@ function AlbumsListItem({ album }) {
     </ExpandablePanel>
   )
 }
-
-export default AlbumsListItem

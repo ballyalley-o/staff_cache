@@ -1,6 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css'
 import React from 'react'
-import StaffList from './components/StaffList'
+import StaffList from './components/Staff/StaffList'
 import { ToastContainer } from 'react-toastify'
 import { toastifyOptions } from './theme/options'
 

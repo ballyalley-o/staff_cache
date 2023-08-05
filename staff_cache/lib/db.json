@@ -5,10 +5,6 @@
       "id": 7
     },
     {
-      "name": "Dr. Alberto Runte",
-      "id": 8
-    },
-    {
       "name": "Freddie Maggio",
       "id": 9
     }
@@ -33,24 +29,6 @@
       "id": 30
     },
     {
-      "staffId": 7,
-      "title": {
-        "symbol": "O",
-        "name": "Oxygen",
-        "atomicNumber": 8
-      },
-      "id": 34
-    },
-    {
-      "staffId": 8,
-      "title": {
-        "symbol": "Er",
-        "name": "Erbium",
-        "atomicNumber": 68
-      },
-      "id": 36
-    },
-    {
       "staffId": 9,
       "title": {
         "symbol": "Ni",
@@ -58,6 +36,15 @@
         "atomicNumber": 28
       },
       "id": 39
+    },
+    {
+      "staffId": 7,
+      "title": {
+        "symbol": "In",
+        "name": "Indium",
+        "atomicNumber": 49
+      },
+      "id": 40
     }
   ],
   "photos": [
@@ -90,6 +77,16 @@
       "albumId": 36,
       "url": "https://loremflickr.com/150/150/abstract?lock=3951062448865280",
       "id": 9
+    },
+    {
+      "albumId": 40,
+      "url": "https://loremflickr.com/150/150/abstract?lock=7329634511224832",
+      "id": 10
+    },
+    {
+      "albumId": 29,
+      "url": "https://loremflickr.com/150/150/abstract?lock=2370472584937472",
+      "id": 11
     }
   ]
 }

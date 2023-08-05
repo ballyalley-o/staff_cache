@@ -15,13 +15,3 @@ export const THUNK_TYPE = {
   ADD: thunk(add),
   REMOVE: thunk(remove),
 }
-
-export const BUTTONS = {
-  // @root - StaffList
-  ADD_STAFF: 'ADD STAFF',
-}
-
-export const SNACKS = {
-  // @root - StaffList
-  STAFF_ADDED: 'STAFF ADDED',
-}

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StyledOuterDiv, StyledInnerDiv } from '../theme/styles'
+import { StyledOuterDiv, StyledInnerDiv } from '../theme'
 
 Skeleton.propTypes = {
   times: PropTypes.number,

@@ -1,5 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
+// styles
+import {
+  StyledWrapperDiv,
+  StyledExpandableWrapperDiv,
+  StyledExpandableDiv,
+  ExpandableCursor,
+  ExpandableChildren,
+} from '../theme'
+// assets
 import { GoChevronDown, GoChevronLeft } from 'react-icons/go'
 
 export default function ExpandablePanel({ header, children }) {
@@ -9,16 +18,14 @@ export default function ExpandablePanel({ header, children }) {
     setIsExpanded(!isExpanded)
   }
   return (
-    <div className='mb-2 border rounded'>
-      <div className='flex p-2 justify-between items-center '>
-        <div className='flex flex-row items-center justify-between gap-5 items-center'>
-          {header}
-        </div>
-        <div onClick={handleExpand} className='cursor-pointer'>
+    <div className={StyledExpandableDiv}>
+      <div className={StyledExpandableWrapperDiv}>
+        <div className={StyledWrapperDiv}>{header}</div>
+        <div onClick={handleExpand} className={ExpandableCursor}>
           {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
         </div>
       </div>
-      {isExpanded && <div className='p-2 border-t'>{children}</div>}
+      {isExpanded && <div className={ExpandableChildren}>{children}</div>}
     </div>
   )
 }

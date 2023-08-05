@@ -1,10 +1,19 @@
 import React from 'react'
 import { useFetchAlbumsQuery, useCreateAlbumMutation } from '../../store'
+// components
 import { toast } from 'react-toastify'
 import { FaPlus } from 'react-icons/fa'
 import AlbumsListItem from './AlbumsListItem'
 import Skeleton from '../Skeleton'
 import Button from '../Button'
+// styles
+import {
+  StyledWrapperDiv,
+  StyledHeaderH3,
+  StyledButton,
+} from '../../theme/styles'
+// constants
+import { BUTTONS, SNACKS } from '../../constants'
 
 export default function AlbumsList({ staff }) {
   const { data, error, isFetching } = useFetchAlbumsQuery(staff)
@@ -12,7 +21,7 @@ export default function AlbumsList({ staff }) {
 
   const handleCreateAlbums = async () => {
     await createAlbum(staff)
-    toast.success('Album created')
+    toast.success(SNACKS.ALBUM_CREATED)
   }
 
   let content
@@ -28,18 +37,18 @@ export default function AlbumsList({ staff }) {
   }
 
   return (
-    <div className=''>
-      <div className='flex flex-row justify-between items-center my-3'>
-        <h3 className='text-lg font-bold'>Albums for {staff.name}</h3>
+    <div>
+      <div className={StyledWrapperDiv}>
+        <h3 className={StyledHeaderH3}>Albums for {staff.name}</h3>
         <Button
           onClick={handleCreateAlbums}
           warning
           loading={results.isLoading}
         >
-          <FaPlus /> <h1 className='text-lg text-black'>Add Album</h1>
+          <FaPlus /> <h1 className={StyledButton}>{BUTTONS.ADD_ALBUM}</h1>
         </Button>
       </div>
-      <div className=''>{content}</div>
+      <div>{content}</div>
     </div>
   )
 }
